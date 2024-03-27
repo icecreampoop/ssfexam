@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class LoginController {
     
-    // TODO: Task 6
     @GetMapping(path = {"/", "/index", "/login"})
     public String login(Model model) {
 
@@ -27,7 +26,6 @@ public class LoginController {
         return "view0";
     }
 
-    // TODO: Task 7
     @PostMapping("/login")
     public String processlogin(@Valid @ModelAttribute("userLogin") Login userLogin, BindingResult result,
     HttpSession session, Model model ) {
@@ -35,6 +33,8 @@ public class LoginController {
         if (result.hasErrors()) {
             return "view0";
         }
+
+        session.setAttribute("userLogin", userLogin);
         
         return "view1";
     }

@@ -1,6 +1,8 @@
 package sg.edu.nus.iss.ibfb4ssfassessment.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class Movie {
 
@@ -8,7 +10,7 @@ public class Movie {
     private String title;
     private String year;
     private String rated;
-    private Long releaseDate;
+    private String releaseDate;
     private String runTime;
     private String genre;
     private String director;
@@ -22,7 +24,11 @@ public class Movie {
         this.title = title;
         this.year = year;
         this.rated = rated;
-        this.releaseDate = releaseDate;
+
+        // format epoch to string
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+        this.releaseDate = sdf.format(new Date(releaseDate));
+
         this.runTime = runTime;
         this.genre = genre;
         this.director = director;
@@ -30,72 +36,93 @@ public class Movie {
         this.count = count;
     }
 
-    public Movie(){
+    public Movie() {
     }
 
     public int getMovieID() {
         return movieID;
     }
+
     public void setMovieID(int movieID) {
         this.movieID = movieID;
     }
+
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getYear() {
         return year;
     }
+
     public void setYear(String year) {
         this.year = year;
     }
+
     public String getRated() {
         return rated;
     }
+
     public void setRated(String rated) {
         this.rated = rated;
     }
-    public Long getReleaseDate() {
+
+    public String getReleaseDate() {
         return releaseDate;
     }
-    public void setReleaseDate(Long releaseDate) {
+
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
+
     public String getRunTime() {
         return runTime;
     }
+
     public void setRunTime(String runTime) {
         this.runTime = runTime;
     }
+
     public String getGenre() {
         return genre;
     }
+
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
     public String getDirector() {
         return director;
     }
+
     public void setDirector(String director) {
         this.director = director;
     }
+
     public Double getRating() {
         return rating;
     }
+
     public void setRating(Double rating) {
         this.rating = rating;
     }
+
     public Date getFormattedReleaseDate() {
         return formattedReleaseDate;
     }
+
     public void setFormattedReleaseDate(Date formattedReleaseDate) {
         this.formattedReleaseDate = formattedReleaseDate;
     }
+
     public int getCount() {
         return count;
     }
+
     public void setCount(int count) {
         this.count = count;
     }
@@ -107,5 +134,5 @@ public class Movie {
                 + director + ", rating=" + rating + ", formattedReleaseDate=" + formattedReleaseDate + ", count="
                 + count + "]";
     }
-    
+
 }

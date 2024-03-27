@@ -1,0 +1,50 @@
+<input type="hidden" class="form-control" name="id" data-th-value="*{id}">
+<!-- cannot initiate at here as Thymeleaf send back as String not Date
+                <input type="hidden" class="form-control" name="createAt" data-th-value="${#dates.format(todo.createAt,'yyyy-MM-dd')}">
+                <input type="hidden" class="form-control" name="updatedAt" data-th-value="${#dates.format(todo.updatedAt,'yyyy-MM-dd')}">	
+                -->
+<div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" data-th-field="*{name}">
+</div>
+<div class="alert alert-danger" data-th-if="${#fields.hasErrors('name')}" data-th-each="err : ${#fields.errors('name')}"
+    data-th-text="${err}">
+</div>
+<div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" name="description" data-th-field="*{description}">
+</div>
+<div class="alert alert-danger" data-th-if="${#fields.hasErrors('description')}"
+    data-th-each="err : ${#fields.errors('description')}" data-th-text="${err}">
+</div>
+<div class="mb-3">
+    <label for="dueDate" class="form-label">Due Date</label>
+    <input type="date" class="form-control" name="dueDate" data-th-field="*{dueDate}">
+</div>
+<div class="alert alert-danger" data-th-if="${#fields.hasErrors('dueDate')}"
+    data-th-each="err : ${#fields.errors('dueDate')}" data-th-text="${err}">
+</div>
+<div class="mb-3">
+    <label for="priority" class="form-label">Priority</label>
+    <Select type="text" class="form-control" name="priority" data-th-field="*{priority}">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+</div>
+<div class="alert alert-danger" data-th-if="${#fields.hasErrors('priority')}"
+    data-th-each="err : ${#fields.errors('priority')}" data-th-text="${err}">
+</div>
+<div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <select type="text" class="form-select" name="status" data-th-field="*{status}">
+        <option value="pending">Pending</option>
+        <option value="started">Started</option>
+        <option value="in_progress">In Progress</option>
+        <option value="completed">Completed</option>
+    </select>
+</div>
+<div class="alert alert-danger" data-th-if="${#fields.hasErrors('status')}"
+    data-th-each="err : ${#fields.errors('status')}" data-th-text="${err}">
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>

@@ -25,7 +25,7 @@ public class FileService {
                                     jArray.get(x).asJsonObject().getString("Title"),
                                     jArray.get(x).asJsonObject().getString("Year"),
                                     jArray.get(x).asJsonObject().getString("Rated"),
-                                    (long) jArray.get(x).asJsonObject().getInt("Released"),
+                                    Long.parseLong(jArray.get(x).asJsonObject().get("Released").toString()),
                                     jArray.get(x).asJsonObject().getString("Runtime"),
                                     jArray.get(x).asJsonObject().getString("Genre"),
                                     jArray.get(x).asJsonObject().getString("Director"),
