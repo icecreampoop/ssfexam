@@ -1,5 +1,8 @@
 package sg.edu.nus.iss.ibfb4ssfassessment.service;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.HashOperations;
@@ -36,7 +39,8 @@ public class DatabaseService {
         
     }
 
-    public long getNumberOfEvents() {
+    //number of movies
+    public long getNumberOfMovies() {
         hashOps = template.opsForHash();
 
         return hashOps.size(Utils.KEY_MOVIES);
@@ -46,15 +50,22 @@ public class DatabaseService {
     // return repo.getMovie(index);
     // }
 
-    // TODO: Task 4 (Map)
+    // Get Movie by ID
     public Movie getMovieById(Integer movieId) throws JsonProcessingException {
         hashOps = template.opsForHash();
 
         return objectMapper.readValue(hashOps.get(Utils.KEY_MOVIES, movieId.toString()), Movie.class);
     }
 
-    // // TODO: Task 5
-    // public List<Movie> getAllMovies() {
+    // TODO: Task 5
+    public List<Movie> getAllMovies() throws JsonProcessingException {
+        List<Movie> movieList = new LinkedList<>();
+        hashOps = template.opsForHash();
 
-    // }
+        for (String x : hashOps.values(Utils.KEY_MOVIES)) {
+            movieList.add(objectMapper.readValue(x , Movie.class));
+        }
+
+        return movieList;
+    }
 }

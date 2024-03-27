@@ -51,6 +51,7 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner{
         } catch (IOException io) {
             io.printStackTrace();
         }
+		
 	}
 
 }

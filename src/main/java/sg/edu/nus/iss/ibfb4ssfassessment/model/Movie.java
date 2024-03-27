@@ -102,7 +102,7 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie [movieID=" + movieID + ", title=" + title + ", year=" + year + ", rated=" + rated
+        return "[movieID=" + movieID + ", title=" + title + ", year=" + year + ", rated=" + rated
                 + ", releaseDate=" + releaseDate + ", runTime=" + runTime + ", genre=" + genre + ", director="
                 + director + ", rating=" + rating + ", formattedReleaseDate=" + formattedReleaseDate + ", count="
                 + count + "]";
