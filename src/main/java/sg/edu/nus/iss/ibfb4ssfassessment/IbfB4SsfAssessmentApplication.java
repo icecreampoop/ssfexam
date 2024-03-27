@@ -44,12 +44,13 @@ public class IbfB4SsfAssessmentApplication implements CommandLineRunner{
 			//printing list of movies to console
 			for (Movie x : fileService.readFile(strBuild.toString())) {
 				System.out.println(x.toString());
+
+				dbService.saveRecord(x);
 			};
 
         } catch (IOException io) {
             io.printStackTrace();
         }
-
 	}
 
 }
