@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import sg.edu.nus.iss.ibfb4ssfassessment.model.Booking;
 import sg.edu.nus.iss.ibfb4ssfassessment.model.Login;
 import sg.edu.nus.iss.ibfb4ssfassessment.service.DatabaseService;
 
@@ -32,6 +33,9 @@ public class MovieController {
             return "redirect:/";
         }
 
+        Booking booking = new Booking();
+        model.addAttribute("booking", booking);
+
         try {
             model.addAttribute("movielist", dbService.getAllMovies());
         } catch (JsonProcessingException e) {
@@ -41,12 +45,21 @@ public class MovieController {
         return "view2";
     }
 
-    // // TODO: Task 9
-    // public String bookMovie() {
+    @GetMapping(path = "/booking/{id}")
+    public String bookMovie(@PathVariable("id") String id,
+            @Valid @ModelAttribute() Booking booking, BindingResult result,
+            HttpSession session, Model model) {
 
-    // }
+        // if not old enough return view 3
 
-    // TODO: Task 9
-    // ... ...
+        // sry couldnt finish the exam in time as im learning path variable live lmao
+        try {
+            model.addAttribute("movietitle", dbService.getMovieById(Integer.parseInt(id)).getTitle());
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return "view4";
+    }
 
 }

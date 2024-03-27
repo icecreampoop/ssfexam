@@ -40,10 +40,13 @@ public class LoginController {
     }
     
 
-    // // TODO For the logout button shown on View 2
-    // // On logout, session should be cleared
-    // public String logout() {
-
-    // }
+    // TODO For the logout button shown on View 2
+    // On logout, session should be cleared
+    @GetMapping("logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        
+        return "redirect:/";
+    }
     
 }

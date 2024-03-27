@@ -18,41 +18,41 @@
     </form>
 
     <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Movie ID</th>
-                    <th>Movie Title</th>
-                    <th>Movie Year</th>
-                    <th>Movie Rated</th>
-                    <th>Released On</th>
-                    <th>Runtime</th>
-                    <th>Genre</th>
-                    <th>Director</th>
-                    <th>Rating</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-th-each="movie: ${movielist}">
-                    <td> <span data-th-text="${movie.movieID}"></span> </td>
-                    <td> <span data-th-text="${movie.title}"></span> </td>
-                    <td> <span data-th-text="${movie.year}"></span> </td>
-                    <td> <span data-th-text="${movie.rated}"></span> </td>
-                    <td> <span data-th-text="${movie.releaseDate}"></span> </td>
-                    <td> <span data-th-text="${movie.runTime}"></span> </td>
-                    <td> <span data-th-text="${movie.genre}"></span> </td>
-                    <td> <span data-th-text="${movie.director}"></span> </td>
-                    <td> <span data-th-text="${movie.rating}"></span> </td>
-                    <td> <span data-th-text="${movie.count}"></span> </td>
-                    <td> <span>
-                            <form>
-                                <button type="submit" class="btn btn-primary">Book</button>
-                            </form>
-                        </span></td>
-                </tr>
-            </tbody>
-        </table>
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Movie ID</th>
+                        <th>Movie Title</th>
+                        <th>Movie Year</th>
+                        <th>Movie Rated</th>
+                        <th>Released On</th>
+                        <th>Runtime</th>
+                        <th>Genre</th>
+                        <th>Director</th>
+                        <th>Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-th-each="movie: ${movielist}">
+                        <td> <span data-th-text="${movie.movieID}"></span> </td>
+                        <td> <span data-th-text="${movie.title}"></span> </td>
+                        <td> <span data-th-text="${movie.year}"></span> </td>
+                        <td> <span data-th-text="${movie.rated}"></span> </td>
+                        <td> <span data-th-text="${movie.releaseDate}"></span> </td>
+                        <td> <span data-th-text="${movie.runTime}"></span> </td>
+                        <td> <span data-th-text="${movie.genre}"></span> </td>
+                        <td> <span data-th-text="${movie.director}"></span> </td>
+                        <td> <span data-th-text="${movie.rating}"></span> </td>
+                        <td> <span data-th-text="${movie.count}"></span> </td>
+                        <td> <span>
+                                <a class="btn btn-primary" data-th-href="@{/booking/{id}(id=${movie.movieID})}">Book</a>
+                            </span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
 </body>
 

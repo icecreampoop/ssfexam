@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Success</h1>
+    <br>
+    <p>
+        You have successfully booked the movie.
+        <br>
+        <span>
+            <h3 data-th-text="${movietitle}"></h3>
+        </span>
+    </p>
+
+    <form method="GET" action="/view2">
+        <button type="submit" class="btn btn-primary">Back to Movie Listing</button>
+    </form>
+</body>
+
+</html>
